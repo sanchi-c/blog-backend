@@ -11,6 +11,7 @@ export class BlogController {
   // Submit a post
   @Post('/post')
   async addPost(@Res() res, @Body() createPostDTO: CreatePostDTO) {
+    debugger;
     const newPost = await this.blogService.addPost(createPostDTO);
     return res.status(HttpStatus.OK).json({
       message: 'Post has been submitted successfully!',
@@ -31,6 +32,7 @@ export class BlogController {
   // Fetch all posts
   @Get('posts')
   async getPosts(@Res() res) {
+    debugger;
     const posts = await this.blogService.getPosts();
     return res.status(HttpStatus.OK).json(posts);
   }
